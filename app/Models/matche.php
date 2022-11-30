@@ -9,6 +9,8 @@ class matche extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function goals()
     {
         return $this->hasMany(goals::class);

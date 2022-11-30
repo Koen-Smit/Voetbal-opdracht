@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class goals extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function match()
+    {
+        return $this->belongsTo(matches::class);
+    }
 }

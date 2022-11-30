@@ -9,6 +9,8 @@ class team extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function matche()
     {
         return $this->hasMany(matche::class);

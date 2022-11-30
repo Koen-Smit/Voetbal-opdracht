@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\teamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PagesController::class, 'home'])->name('home');
+
+Route::get('create', [teamController::class, 'create'])->name('create');
+
+Route::post('store', [teamController::class, 'store'])->name('store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
