@@ -16,6 +16,7 @@ class teamController extends Controller
             'id' => $id
         ]);
     }
+
     public function store(){
         $team = new team();
         $team->name = request('name');
@@ -24,4 +25,10 @@ class teamController extends Controller
         $team->save();
         return redirect()->route('home');
     }
+
+    // public function delete($id){
+    //     $team = team::find($id);
+    //     $team->delete();
+    //     return redirect()->route('dashboard')->with('messege', 'Team deleted');
+    // }
 }

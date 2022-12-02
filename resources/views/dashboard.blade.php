@@ -11,6 +11,13 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
+                <div class="p-6 text-gray-900">
+                    <ul>
+                        @foreach($team as $t)
+                            <li>{{$t->name}}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
