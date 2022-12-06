@@ -22,13 +22,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
                             @foreach($team as $t)
-                                <td>{{$t->name}}</td>
-                                <td></td>
-                                <td></td>
+                                <tr>
+                                    <td>{{$t->name}}</td>
+                                    <td><a href="{{route('edit', $t->id)}}">edit</a></td>
+                                    <td><a href="{{route('delete', $t->id)}}">delete</a></td>
+                                </tr>
                             @endforeach
-                            </tr>
                         </tbody>
                     </table>
                 </div>
