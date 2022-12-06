@@ -26,9 +26,24 @@ class teamController extends Controller
         return redirect()->route('home');
     }
 
-    // public function delete($id){
-    //     $team = team::find($id);
-    //     $team->delete();
-    //     return redirect()->route('dashboard')->with('messege', 'Team deleted');
-    // }
+    public function delete($id){
+        $team = team::find($id);
+        $team->delete();
+        return redirect()->route('dashboard')->with('messege', 'Team deleted');
+    }
+
+    public function edit($id){
+        $team = team::find($id);
+        return view('update', [
+            'team' => $team
+        ]);
+    }
+
+    public function update(request $request){
+        $team = team::find($request->id);
+        $team->name = $request->name;
+        $team->save();
+        return redirect()->route('dashboard')
+                ->with('message', 'Event succesvol veranderd');
+    }
 }
