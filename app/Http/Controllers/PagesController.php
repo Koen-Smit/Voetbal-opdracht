@@ -11,11 +11,13 @@ class PagesController extends Controller
     {
         return view('welcome');
     }
+    //user zie alleen zijn eigen team
     public function team()
     {
-        $team = team::all();
+        $team = team::where('user_id', auth()->user()->id)->get();
         return view('dashboard', [
             'team' => $team
         ]);
     }
+
 }
