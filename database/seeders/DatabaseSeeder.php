@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'jan',
             'email' => 'jan@jan.nl',
             'password' => \Hash::make('jan'),
+            'is_admin' => 1,
         ]);
     }
 }
