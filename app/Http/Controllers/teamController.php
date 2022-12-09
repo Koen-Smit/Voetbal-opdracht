@@ -28,8 +28,16 @@ class teamController extends Controller
 
     public function delete($id){
         $team = team::find($id);
-        $team->delete();
-        return redirect()->route('dashboard')->with('messege', 'Team deleted');
+        if(\Auth::user()->is_admin == 1){
+            $team->delete();
+        }
+        else if(\Auth::user()->id == $team->user_id){
+            $team->delete();
+        }
+        else{
+            return redirect()->route('dashboard')->with('message', 'je mag dit team niet verwijderen');
+        }
+        return redirect()->route('dashboard')->with('message', 'Team deleted');
     }
 
     public function edit($id){
