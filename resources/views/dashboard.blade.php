@@ -31,7 +31,8 @@
                         </thead>
                         <tbody>
                             @foreach($team as $t)
-                                <tr>
+                                <tr style="vertical-align: middle;">
+                                    
                                     <td>{{$t->name}}</td>
                                     <td><a href="{{route('edit', $t->id)}}">edit</a></td>
                                     {{-- <td><a href="{{route('delete', $t->id)}}">delete</a></td> --}}
