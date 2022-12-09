@@ -42,9 +42,14 @@ class teamController extends Controller
 
     public function edit($id){
         $team = team::find($id);
-        return view('update', [
-            'team' => $team
-        ]);
+        if(\Auth::user()->is_admin == 1 || \Auth::user()->id == $team->user_id){
+            return view('update', [
+                'team' => $team
+            ]);
+        }
+        else{
+            return redirect()->route('dashboard')->with('message', 'je mag dit team niet veranderen');
+        }
     }
 
     public function update(request $request){
