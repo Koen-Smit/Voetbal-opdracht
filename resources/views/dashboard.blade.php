@@ -26,7 +26,14 @@
                                 <tr>
                                     <td>{{$t->name}}</td>
                                     <td><a href="{{route('edit', $t->id)}}">edit</a></td>
-                                    <td><a href="{{route('delete', $t->id)}}">delete</a></td>
+                                    {{-- <td><a href="{{route('delete', $t->id)}}">delete</a></td> --}}
+                                    {{-- form for delete --}}
+                                    <td>
+                                        <form action="{{route('delete', $t)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">X</button>
+                                        </form>
                                 </tr>
                             @endforeach
                         </tbody>

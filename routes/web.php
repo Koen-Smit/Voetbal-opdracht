@@ -26,7 +26,7 @@ Route::get('edit/{id}', [teamController::class, 'edit'])->middleware(['auth', 'v
 
 Route::post('update', [teamController::class, 'update'])->middleware(['auth', 'verified'])->name('update');
 
-Route::get('delete/{id}', [teamController::class, 'delete'])->middleware(['auth', 'verified'])->name('delete');
+Route::delete('delete/{id}', [teamController::class, 'delete'])->name('delete');
 
 Route::get('/dashboard', [PagesController::class, 'team'])->middleware(['auth', 'verified'])->name('dashboard');
 
