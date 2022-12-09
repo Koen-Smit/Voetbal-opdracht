@@ -18,7 +18,7 @@
                         </div>
                         <input type="hidden" name="points" id="points" value="0">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary"><input type="submit"></button>
                         </div>
                     </div>
 

@@ -40,7 +40,7 @@
                                         <form action="{{route('delete', $t)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">X</button>
+                                            <button class="btn btn-danger">X</button>
                                         </form>
                                 </tr>
                             @endforeach
