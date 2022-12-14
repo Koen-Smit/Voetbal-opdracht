@@ -15,4 +15,13 @@ class userController extends Controller
             ]);
         }
     }
+
+    public function adminUpdate($id){
+        if (\Auth::user()->is_admin == 1){
+            $user = User::find($id);
+            $user->is_admin = 1;
+            $user->save();
+            return redirect()->route('admin');
+        }
+    }
 }
