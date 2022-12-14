@@ -7,4 +7,12 @@ use App\Models\user;
 
 class userController extends Controller
 {
+    public function admin(){
+        if (\Auth::user()->is_admin == 1){
+            $users = User::all();
+            return view('admin', [
+                'users' => $users
+            ]);
+        }
+    }
 }
