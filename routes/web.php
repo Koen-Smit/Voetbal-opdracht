@@ -24,6 +24,11 @@ Route::post('store', [teamController::class, 'store'])->name('store');
 
 Route::get('edit/{id}', [teamController::class, 'edit'])->middleware(['auth', 'verified'])->name('edit');
 
+Route::get('addTeamMate/{id}', [teamController::class, 'addTeamMate'])->middleware(['auth', 'verified'])->name('addTeamMate');
+
+//post route for add player to database
+Route::POST('addPlayer', [teamController::class, 'addPlayer'])->middleware(['auth', 'verified'])->name('addPlayer');
+
 Route::post('update', [teamController::class, 'update'])->middleware(['auth', 'verified'])->name('update');
 
 Route::delete('delete/{id}', [teamController::class, 'delete'])->name('delete');

@@ -49,9 +49,33 @@ class teamController extends Controller
 
     public function update(request $request){
         $team = team::find($request->id);
+        dd($team);
         $team->name = $request->name;
         $team->save();
         return redirect()->route('dashboard')
                 ->with('message', 'Event succesvol veranderd');
     }
+
+    // add player to team
+    public function addTeamMate($id){
+        $team = team::find($id);
+        $user = User::all();
+        return view('addPlayer', [
+            'team' => $team,
+            'user' => $user
+        ]);
+    }
+
+    public function addPlayer(request $request){
+        $team = team::find($request->id);
+        $team->player1 = $request->player1;
+        $team->player2 = $request->player2;
+        $team->player3 = $request->player3;
+        $team->player4 = $request->player4;
+        $team->player5 = $request->player5;
+        $team->save();
+        return redirect()->route('dashboard')
+                ->with('message', 'Event succesvol veranderd');
+    }
+
 }

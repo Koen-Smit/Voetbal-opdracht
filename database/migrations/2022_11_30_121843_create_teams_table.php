@@ -17,6 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('points')->default(0);
+            $table->string('player1')->nullable();
+            $table->string('player2')->nullable();
+            $table->string('player3')->nullable();
+            $table->string('player4')->nullable();
+            $table->string('player5')->nullable();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
