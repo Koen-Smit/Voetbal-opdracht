@@ -27,6 +27,7 @@
                     </x-nav-link>
                 </div>
             </div>
+
             @if (\Auth::user()->is_admin == 1)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
