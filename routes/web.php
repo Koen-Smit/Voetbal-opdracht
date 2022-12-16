@@ -18,6 +18,8 @@ use App\Http\Controllers\teamController;
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
 
+Route::get('toernooi', [PagesController::class, 'toernooi'])->name('toernooi');
+
 Route::get('create', [teamController::class, 'create'])->name('create');
 
 Route::post('store', [teamController::class, 'store'])->name('store');

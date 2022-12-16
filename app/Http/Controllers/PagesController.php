@@ -19,5 +19,8 @@ class PagesController extends Controller
             'team' => $team
         ]);
     }
-
+    public function toernooi()
+    {
+        return view('toernooi');
+    }
 }
