@@ -27,6 +27,7 @@
                                 <th>teamname</th>
                                 <th></th>
                                 <th></th>
+                                <th>Add teammate</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +44,10 @@
                                             @method('DELETE')
                                             <button class="btn btn-danger">X</button>
                                         </form>
+                                    </td>
+                                    <td>
+                                        <a href="{{route('addTeamMate', $t->id)}}">Add Player</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

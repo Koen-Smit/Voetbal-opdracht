@@ -17,7 +17,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('create')" :active="request()->routeIs('index')">
+                    <x-nav-link :href="route('create')" :active="request()->routeIs('create')">
                         {{ __('create') }}
                     </x-nav-link>
                 </div>
@@ -27,6 +27,13 @@
                     </x-nav-link>
                 </div>
             </div>
+            @if (\Auth::user()->is_admin == 1)
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                        {{ __('admin') }}
+                    </x-nav-link>
+                </div>
+            @endif
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
