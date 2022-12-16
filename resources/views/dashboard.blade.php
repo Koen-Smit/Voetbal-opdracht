@@ -52,6 +52,30 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>teamname</th>
+                                <th>Team members</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($team as $t)
+                                <tr style="vertical-align: middle;">
+                                    
+                                    <td>{{$t->name}}</td>
+                                 
+                                    <td>
+                                        <p>{{$t->player1}}</p>
+                                        <p>{{$t->player2}}</p>
+                                        <p>{{$t->player3}}</p>
+                                        <p>{{$t->player4}}</p>
+                                        <p>{{$t->player5}}</p>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
