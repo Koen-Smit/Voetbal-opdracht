@@ -29,6 +29,9 @@ Route::get('edit/{id}', [teamController::class, 'edit'])->middleware(['auth', 'v
 
 Route::get('addTeamMate/{id}', [teamController::class, 'addTeamMate'])->middleware(['auth', 'verified'])->name('addTeamMate');
 
+//get route for generate
+Route::get('generate', [PagesController::class, 'generate'])->middleware(['auth', 'verified'])->name('generate');
+
 //post route for add player to database
 Route::POST('addPlayer', [teamController::class, 'addPlayer'])->middleware(['auth', 'verified'])->name('addPlayer');
 
