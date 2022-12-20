@@ -29,5 +29,26 @@ class PagesController extends Controller
             'teams' => $teams
         ]);
     }
+
+    public function generate(){
+        $teams = team::all();
+        foreach($teams as $team){
+            $next = false;
+            foreach($teams as $secondTeam){
+                if($next == true){
+
+                    $match = new matche();
+                    $match->team1_id = $team->id;
+                    $match->team2_id = $secondTeam->id;
+                    $match->user_id = \Auth::user()->id;
+                    $match->save();
+
+                }
+                if($team == $secondTeam){
+                    $next = true;
+                }
+            }
+        }
+        return redirect()->route('toernooi');
     }
 }
