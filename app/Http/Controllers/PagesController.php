@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\team;
+use App\Models\matche;
 
 class PagesController extends Controller
 {
@@ -21,6 +22,12 @@ class PagesController extends Controller
     }
     public function toernooi()
     {
-        return view('toernooi');
+        $teams = team::all();
+        $matches = matche::all();
+        return view('toernooi', [
+            'matches' => $matches,
+            'teams' => $teams
+        ]);
+    }
     }
 }
