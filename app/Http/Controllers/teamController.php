@@ -91,6 +91,29 @@ class teamController extends Controller
         $match->team1_score = $request->team1_score;
         $match->team2_score = $request->team2_score;
         $match->save();
+
+        //add points to team
+
+        $team  = team::find($match->team1_id);
+        $team2 = team::find($match->team2_id);
+        
+        
+        if($request->team1_score > $request->team2_score){
+            $team->points = $team->points + 3;
+            $team->save();
+        }
+        else if($request->team1_score < $request->team2_score){
+            $team2->points = $team2->points + 3;
+            $team2->save();
+        }
+        else{
+            $team->points = $team->points + 1;
+            $team2->points = $team2->points + 1;
+            $team->save();
+            $team2->save();
+        }
+        
+
         return redirect()->route('dashboard')
                 ->with('message', 'Event succesvol veranderd');
     }
