@@ -35,6 +35,8 @@ Route::get('generate', [PagesController::class, 'generate'])->middleware(['auth'
 //post route for add player to database
 Route::POST('addPlayer', [teamController::class, 'addPlayer'])->middleware(['auth', 'verified'])->name('addPlayer');
 
+Route::POST('score', [teamController::class, 'score'])->middleware(['auth', 'verified'])->name('score');
+
 Route::post('update', [teamController::class, 'update'])->middleware(['auth', 'verified'])->name('update');
 
 Route::get('admin', [userController::class, 'admin'])->middleware(['auth', 'verified'])->name('admin');

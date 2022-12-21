@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\team;
+use App\Models\matche;
 use Illuminate\Support\Facades\Auth;
 
 class teamController extends Controller
@@ -79,6 +80,17 @@ class teamController extends Controller
         $team->player4 = $request->player4;
         $team->player5 = $request->player5;
         $team->save();
+        return redirect()->route('dashboard')
+                ->with('message', 'Event succesvol veranderd');
+    }
+
+    //add match score to database
+
+    public function score(request $request){
+        $match = matche::find($request->id);
+        $match->team1_score = $request->team1_score;
+        $match->team2_score = $request->team2_score;
+        $match->save();
         return redirect()->route('dashboard')
                 ->with('message', 'Event succesvol veranderd');
     }
