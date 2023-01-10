@@ -7,7 +7,14 @@
 
     <div class="py-12">
         {{-- link to generate --}}
-        <a href="{{route('generate')}}" class="btn btn-primary">Generate</a>
+        <form action="{{Route('generate')}}" method="GET">
+            @csrf
+                @foreach($matches as $match)
+                    <input type="hidden" name="id" id="id" value="{{$match->id}}">
+                @endforeach
+                <input type="number" name="field" id="field" placeholder="Aantal veld">
+                <button class="btn btn-primary">Generate</button>
+        </form>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -15,6 +22,7 @@
                     <th>team 2</th>
                     <th>Random score</th>
                     <th>Score</th>
+                    <th>Field</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,6 +60,9 @@
                         </td>
                         <td>
                             {{$match->team1_score}} - {{$match->team2_score}}
+                        </td>
+                        <td>
+                            {{$match->field}}
                         </td>
                     </tr>
                 @endforeach

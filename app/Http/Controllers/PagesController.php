@@ -30,14 +30,17 @@ class PagesController extends Controller
         ]);
     }
 
-    public function generate(){
+    public function generate(request $request){
         $teams = team::all();
+        $matche = matche::find($request->id);
+        $matche->field = $request->field;
         foreach($teams as $team){
             $next = false;
             foreach($teams as $secondTeam){
+                $random = rand(1, $matche->field);
                 if($next == true){
-
                     $match = new matche();
+                    $match->field = $random;
                     $match->team1_id = $team->id;
                     $match->team2_id = $secondTeam->id;
                     $match->user_id = \Auth::user()->id;
